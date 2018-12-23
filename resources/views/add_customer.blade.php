@@ -20,7 +20,7 @@
 	           <div class="col-md-2"></div>
                 <div class="col-md-8 ">
                     <div class="panel panel-default">
-                        <div class="panel-heading"><h3 class="panel-title">Add Employee</h3></div>
+                        <div class="panel-heading"><h3 class="panel-title">Add Customer</h3></div>
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul>
@@ -31,10 +31,10 @@
                             </div>
                         @endif
                         <div class="panel-body">
-                            <form role="form" action="{{ url('/insert-employee') }}" method="post" enctype="multipart/form-data">
+                            <form role="form" action="{{ url('/insert-customer') }}" method="post" enctype="multipart/form-data">
                             	@csrf
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Name</label>
+                                    <label for="exampleInputEmail1">Customer Name</label>
                                     <input type="text" class="form-control" name="name" placeholder="Full Name"required>
                                 </div>
                                 <div class="form-group">
@@ -50,20 +50,24 @@
                                     <input type="text" class="form-control" name="address" placeholder="address"required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword18">Expeience</label>
-                                    <input type="text" class="form-control" name="experience" placeholder="experience"required>
+                                    <label for="exampleInputPassword18">Shop Name</label>
+                                    <input type="text" class="form-control" name="shopname" placeholder="Shop Name"required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword17">NID NO.</label>
-                                    <input type="text" class="form-control" name="nid_no" placeholder="NID NO"required>
+                                    <label for="exampleInputPassword17">Account Holder</label>
+                                    <input type="text" class="form-control" name="account_holder" placeholder="Account Holder"required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword41">Salary</label>
-                                    <input type="text" class="form-control" name="salary" placeholder="salary"required>
+                                    <label for="exampleInputPassword41">Account Number</label>
+                                    <input type="text" class="form-control" name="account_number" placeholder="Account Number" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword13">Vacation</label>
-                                    <input type="text" class="form-control" name="vacation" placeholder="vacation" required>
+                                    <label for="exampleInputPassword13">Bank Name</label>
+                                    <input type="text" class="form-control" name="bank_name" placeholder="Bank Name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword12">Branch Name</label>
+                                    <input type="text" class="form-control" name="bank_branch" placeholder="Branch Name" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword12">City</label>

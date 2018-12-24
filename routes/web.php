@@ -23,3 +23,11 @@ Route::post('/update-employee/{id}','EmployeeController@UpdateEmployee');
 //customers routes are here-------------------
 Route::get('/add-customer', 'CustomerController@index')->name('add.customer');
 Route::post('/insert-customer','CustomerController@Store');
+Route::get('/all-customer', 'CustomerController@AllCustomer')->name('all.customer');
+Route::get('/view-customer/{id}', 'CustomerController@ViewCustomer');
+Route::get('/delete-customer/{id}', 'CustomerController@DeleteCustomer');
+
+//suppliers routes are here----------------
+Route::get('/add-supplier', 'SupplierController@index')->name('add.supplier');
+Route::post('/insert-supplier','SupplierController@SupplierStore');
+Route::get('/all-supplier', 'SupplierController@AllSupplier')->name('all.supplier');

@@ -173,13 +173,14 @@
                                 <a href="#" class="waves-effect"><i class="md md-palette"></i> <span> Customer </span> <span class="pull-right"><i class="md md-add"></i></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="{{ route('add.customer') }}">Add Customers</a></li> 
-                                    <li><a href="#">All Customer</a></li>     
+                                    <li><a href="{{ route('all.customer') }}">All Customer</a></li>     
                                 </ul>
                             </li>
                              <li class="has_sub">
                                 <a href="#" class="waves-effect"><i class="md md-palette"></i> <span> Suppliers </span> <span class="pull-right"><i class="md md-add"></i></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="#">Typography</a></li>     
+                                    <li><a href="{{ route('add.supplier') }}">Add Supplier</a></li>
+                                    <li><a href="{{ route('all.supplier') }}">All Supplier</a></li>     
                                 </ul>
                             </li>
 

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use DB;
 class CustomerController extends Controller
 {
      /**
@@ -24,6 +24,15 @@ class CustomerController extends Controller
 
     public function Store(Request $request)
     {
+        $validatedData = $request->validate([
+        'name' => 'required|max:255',
+        'email' => 'required|unique:customers|max:255',
+        'phone' => 'required|unique:customers|max:255',
+        'address' => 'required',
+        'photo' => 'required',
+        'city' => 'required',
+        ]);
+
     	$data=array();
     	$data['name']=$request->name;
     	$data['email']=$request->email;
@@ -36,11 +45,85 @@ class CustomerController extends Controller
     	$data['bank_branch']=$request->bank_branch;
     	$data['city']=$request->city;
 
-    	echo "<pre>";
-    	print_r($data);
-    	exit();
+        $image=$request->file('photo');
+        if ($image) {
+            $image_name= str_random(5);
+            $ext=strtolower($image->getClientOriginalExtension());
+            $image_full_name=$image_name.'.'.$ext;
+            $upload_path='public/customer/';
+            $image_url=$upload_path.$image_full_name;
+            $success=$image->move($upload_path,$image_full_name);
+            if ($success) {
+                $data['photo']=$image_url;
+                $customer=DB::table('customers')
+                         ->insert($data);
+              if ($customer) {
+                 $notification=array(
+                 'messege'=>'Successfully Customer Inserted ',
+                 'alert-type'=>'success'
+                  );
+                return Redirect()->route('all.customer')->with($notification);                      
+             }else{
+              $notification=array(
+                 'messege'=>'error ',
+                 'alert-type'=>'success'
+                  );
+                 return Redirect()->back()->with($notification);
+             }      
+                
+            }else{
+
+              return Redirect()->back();
+                
+            }
+        }else{
+              return Redirect()->back();
+        }
+    	
     	
     }
 
+    public function AllCustomer()
+    {
+        $customer=DB::table('customers')->get();
+        return view('all_customer')->with('customer',$customer);
+    }
+
+    //view a single employee
+    public function ViewCustomer($id)
+    {
+        $single=DB::table('customers')
+                ->where('id',$id)
+                ->first();
+        return view('view_customer', compact('single'));     
+    }
+
+//delete a single customer
+    public function DeleteCustomer($id)
+    {
+         $delete=DB::table('customers')
+                ->where('id',$id)
+                ->first();
+         $photo=$delete->photo;
+         unlink($photo);
+         $dltuser=DB::table('customers')
+                  ->where('id',$id)
+                  ->delete();
+         if ($dltuser) {
+                 $notification=array(
+                 'messege'=>'Successfully Customer Deleted ',
+                 'alert-type'=>'success'
+                  );
+                return Redirect()->route('all.customer')->with($notification);                      
+             }else{
+              $notification=array(
+                 'messege'=>'error ',
+                 'alert-type'=>'success'
+                  );
+                 return Redirect()->back()->with($notification);
+             }               
+
+
+    }
 
 }

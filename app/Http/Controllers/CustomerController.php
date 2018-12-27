@@ -122,8 +122,68 @@ class CustomerController extends Controller
                   );
                  return Redirect()->back()->with($notification);
              }               
+    }
 
+    public function EditCustomer($id)
+    {
+        $cus=DB::table('customers')->where('id',$id)->first();
+        return view('edit_customer', compact('cus'));
+    }
 
+    public function UpdateCustomer(Request $request ,$id)
+    {
+        $data=array();
+        $data['name']=$request->name;
+        $data['email']=$request->email;
+        $data['phone']=$request->phone;
+        $data['address']=$request->address;
+        $data['shopname']=$request->shopname;
+        $data['account_holder']=$request->account_holder;
+        $data['account_number']=$request->account_number;
+        $data['bank_name']=$request->bank_name;
+        $data['bank_branch']=$request->bank_branch;
+        $data['city']=$request->city;
+        $image=$request->file('photo');
+
+      if ($image) {
+       $image_name=str_random(20);
+       $ext=strtolower($image->getClientOriginalExtension());
+       $image_full_name=$image_name.'.'.$ext;
+       $upload_path='public/customer/';
+       $image_url=$upload_path.$image_full_name;
+       $success=$image->move($upload_path,$image_full_name);
+       if ($success) {
+          $data['photo']=$image_url;
+             $img=DB::table('customers')->where('id',$id)->first();
+             $image_path = $img->photo;
+             $done=unlink($image_path);
+          $user=DB::table('customers')->where('id',$id)->update($data); 
+         if ($user) {
+                $notification=array(
+                'messege'=>'Customer Update Successfully',
+                'alert-type'=>'success'
+                 );
+               return Redirect()->route('all.customer')->with($notification);                      
+            }else{
+              return Redirect()->back();
+             } 
+          }
+      }else{
+        $oldphoto=$request->old_photo;
+         if ($oldphoto) {
+          $data['photo']=$oldphoto;  
+          $user=DB::table('customers')->where('id',$id)->update($data); 
+         if ($user) {
+                $notification=array(
+                'messege'=>'Customer Update Successfully',
+                'alert-type'=>'success'
+                 );
+               return Redirect()->route('all.customer')->with($notification);                      
+            }else{
+              return Redirect()->back();
+             } 
+          }
+       }
     }
 
 }

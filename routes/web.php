@@ -7,8 +7,6 @@ Route::get('/', function () {
 });
 
 Auth::routes(['verify' => true]);
-
-
 Route::get('/home', 'HomeController@index')->name('home');
 
 //EMPLOYEE ROUTES ARE HERE--------------------
@@ -26,8 +24,14 @@ Route::post('/insert-customer','CustomerController@Store');
 Route::get('/all-customer', 'CustomerController@AllCustomer')->name('all.customer');
 Route::get('/view-customer/{id}', 'CustomerController@ViewCustomer');
 Route::get('/delete-customer/{id}', 'CustomerController@DeleteCustomer');
+Route::get('/edit-customer/{id}', 'CustomerController@EditCustomer');
+Route::post('/update-customer/{id}','CustomerController@UpdateCustomer');
 
 //suppliers routes are here----------------
 Route::get('/add-supplier', 'SupplierController@index')->name('add.supplier');
 Route::post('/insert-supplier','SupplierController@SupplierStore');
 Route::get('/all-supplier', 'SupplierController@AllSupplier')->name('all.supplier');
+Route::get('/view-supplier/{id}', 'SupplierController@ViewSupplier');
+Route::get('/delete-supplier/{id}', 'SupplierController@DeleteSupplier');
+Route::get('/edit-supplier/{id}', 'SupplierController@EditSupplier');
+Route::post('/update-supplier/{id}','SupplierController@UpdateSupplier');

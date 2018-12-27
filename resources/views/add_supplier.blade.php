@@ -77,9 +77,9 @@
                                     <label for="exampleInputPassword12">Supplier Type</label>
                                     <select name="type" class="form-control">
                                     	<option disabled="" selected=""></option>
-                                    	<option value="1">Distributor</option>
-                                    	<option value="2">Whole Seller</option>
-                                    	<option value="3">Brochure</option>
+                                    	<option value="Distributor">Distributor</option>
+                                    	<option value="WholeSeller">Whole Seller</option>
+                                    	<option value="Brochure">Brochure</option>
                                     </select>
                                 </div>
                                 <div class="form-group">

@@ -186,7 +186,20 @@ class EmployeeController extends Controller
              } 
           }
       }else{
-        return Redirect()->back();
+         $oldphoto=$request->old_photo;
+         if ($oldphoto) {
+          $data['photo']=$oldphoto;  
+          $user=DB::table('employees')->where('id',$id)->update($data); 
+         if ($user) {
+                $notification=array(
+                'messege'=>'Employee Update Successfully',
+                'alert-type'=>'success'
+                 );
+               return Redirect()->route('all.employee')->with($notification);                      
+            }else{
+              return Redirect()->back();
+             } 
+          }
        }
     }
 }

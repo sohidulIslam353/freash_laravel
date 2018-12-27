@@ -20,7 +20,7 @@
 	           <div class="col-md-2"></div>
                 <div class="col-md-8 ">
                     <div class="panel panel-default">
-                        <div class="panel-heading"><h3 class="panel-title">Update Employee Information</h3></div>
+                        <div class="panel-heading"><h3 class="panel-title">Update Supplier</h3></div>
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul>
@@ -31,52 +31,62 @@
                             </div>
                         @endif
                         <div class="panel-body">
-                            <form role="form" action="{{ url('/update-employee/'.$edit->id) }}" method="post" enctype="multipart/form-data">
+                            <form role="form" action="{{ url('/update-supplier/'.$sup->id) }}" method="post" enctype="multipart/form-data">
                             	@csrf
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Name</label>
-                                    <input type="text" class="form-control" name="name" value="{{ $edit->name }}" required>
+                                    <label for="exampleInputEmail1">Supplier Name</label>
+                                    <input type="text" class="form-control" name="name" value="{{ $sup->name }}" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword20">Email</label>
-                                    <input type="email" class="form-control" name="email" value="{{ $edit->email }}" required>
+                                    <input type="email" class="form-control" name="email"  value="{{ $sup->email }}" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword21">Phone</label>
-                                    <input type="text" class="form-control" name="phone" value="{{ $edit->phone }}" required>
+                                    <input type="text" class="form-control" name="phone" value="{{ $sup->phone }}" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword19">Address</label>
-                                    <input type="text" class="form-control" name="address" value="{{ $edit->address }}" required>
+                                    <input type="text" class="form-control" name="address" value="{{ $sup->address }}" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword18">Expeience</label>
-                                    <input type="text" class="form-control" name="experience" value="{{ $edit->experience }}" required>
+                                    <label for="exampleInputPassword18">Shop Name</label>
+                                    <input type="text" class="form-control" name="shop" value="{{ $sup->shop }}" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword17">NID NO.</label>
-                                    <input type="text" class="form-control" name="nid_no" value="{{ $edit->nid_no }}" required>
+                                    <label for="exampleInputPassword17">Account Holder</label>
+                                    <input type="text" class="form-control" name="accountholder" value="{{ $sup->accountholder }}" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword41">Salary</label>
-                                    <input type="text" class="form-control" name="salary" value="{{ $edit->salary }}" required>
+                                    <label for="exampleInputPassword41">Account Number</label>
+                                    <input type="text" class="form-control" name="accountnumber" value="{{ $sup->accountnumber }}" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword13">Vacation</label>
-                                    <input type="text" class="form-control" name="vacation" value="{{ $edit->vacation }}" required>
+                                    <label for="exampleInputPassword13">Bank Name</label>
+                                    <input type="text" class="form-control" name="bankname" value="{{ $sup->bankname }}" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword12">Branch Name</label>
+                                    <input type="text" class="form-control" name="branchname" value="{{ $sup->branchname }}" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword12">City</label>
-                                    <input type="text" class="form-control" name="city" value="{{ $edit->city }}" required>
+                                    <input type="text" class="form-control" name="city" value="{{ $sup->city }}" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword12">Supplier Type</label>
+                                    <select name="type" class="form-control">
+                                    	<option value="{{ $sup->type }}">{{ $sup->type }}</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                 	<img id="image" src="#" />
-                                    <label for="exampleInputPassword11">New Photo</label>
-                                    <input type="file"  name="photo" accept="image/*"   onchange="readURL(this);">
+                                    <label for="exampleInputPassword11">Photo</label>
+                                    <input type="file"  name="photo" accept="image/*"  onchange="readURL(this);">
                                 </div>
                                 <div class="form-group">
-                                	<img src="{{ URL::to($edit->photo) }}"  style="height: 80px; width: 80px;">
-                                    <input type="hidden" name="old_photo" value="{{ $edit->photo }}">
+                                	<img  src="{{ URL::to($sup->photo) }}" style="height: 90px; width: 90px;" /> 
+                                	<input type="hidden" name="old_photo" value="{{ $sup->photo }}" >    
                                 </div>
                               
                                 <button type="submit" class="btn btn-purple waves-effect waves-light">Update</button>

@@ -183,6 +183,13 @@
                                     <li><a href="{{ route('all.supplier') }}">All Supplier</a></li>     
                                 </ul>
                             </li>
+                            <li class="has_sub">
+                                <a href="#" class="waves-effect"><i class="md md-palette"></i> <span> Salary (EMP) </span> <span class="pull-right"><i class="md md-add"></i></span></a>
+                                <ul class="list-unstyled">
+                                    <li><a href="{{ route('add.salary') }}">Add Advanced Salary</a></li>
+                                    <li><a href="{{ route('all.salary') }}">All Salary</a></li>     
+                                </ul>
+                            </li>
 
                         
 

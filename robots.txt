@@ -11,3 +11,7 @@ Disallow:
 
   gtag('config', 'UA-131525066-1');
 </script>
+
+@php
+  echo date("F Y ",strtotime('-1 months'));
+@endphp

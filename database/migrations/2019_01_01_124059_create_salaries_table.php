@@ -13,12 +13,11 @@ class CreateSalariesTable extends Migration
      */
     public function up()
     {
-        Schema::create('advance_salaries', function (Blueprint $table) {
+        Schema::create('salaries', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('emp_id');
-            $table->string('month');
-            $table->string('year');
-            $table->string('advanced_salary')->nullable();
+            $table->integer('employee_id');
+            $table->string('salary_month');
+            $table->string('paid_amount');
             $table->timestamps();
         });
     }

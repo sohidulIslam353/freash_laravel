@@ -20,7 +20,10 @@
 	           <div class="col-md-2"></div>
                 <div class="col-md-8 ">
                     <div class="panel panel-info">
-                        <div class="panel-heading"><h3 class="panel-title text-white">Advanced Salary Provide</h3></div>
+                        <div class="panel-heading"><h3 class="panel-title text-white">Advanced Salary Provide</h3>
+
+                        </div>
+                        <a href="{{ route('all.advancedsalary') }}" class="pull-right btn btn-danger btn-sm">All Advanced Salary</a>
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul>

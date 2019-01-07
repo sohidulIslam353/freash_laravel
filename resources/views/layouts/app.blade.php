@@ -192,7 +192,20 @@
                                     <li><a href="">Last Month Salary</a></li>     
                                 </ul>
                             </li>
-
+                             <li class="has_sub">
+                                <a href="#" class="waves-effect"><i class="md md-palette"></i> <span> Category </span> <span class="pull-right"><i class="md md-add"></i></span></a>
+                                <ul class="list-unstyled">
+                                    <li><a href="{{ route('add.category') }}">Add Category</a></li>
+                                    <li><a href="{{ route('all.category') }}">All Category</a></li>
+                                </ul>
+                            </li>
+                            <li class="has_sub">
+                                <a href="#" class="waves-effect"><i class="md md-palette"></i> <span> Products </span> <span class="pull-right"><i class="md md-add"></i></span></a>
+                                <ul class="list-unstyled">
+                                    <li><a href="{{ route('add.product') }}">Add Product</a></li>
+                                    <li><a href="{{ route('all.product') }}">All Product</a></li>
+                                </ul>
+                            </li>
                         
 
                         </ul>

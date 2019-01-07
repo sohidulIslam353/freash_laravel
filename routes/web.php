@@ -41,3 +41,19 @@ Route::get('/add-advenced-salary', 'SalaryController@AddAdvancedSalary')->name('
 Route::post('/insert-advancedsalary','SalaryController@InsertAdvanced');
 Route::get('/all-advenced-salary', 'SalaryController@AllSalary')->name('all.advancedsalary');
 Route::get('/pay-salary', 'SalaryController@PaySalary')->name('pay.salary');
+
+//category rputes here------------
+Route::get('/add-category','SalaryController@AddCategory')->name('add.category');
+Route::post('/insert-category','SalaryController@InsertCategory');
+Route::get('/all-catgory', 'SalaryController@AllCategory')->name('all.category');
+Route::get('/delete-category/{id}', 'SalaryController@DeleteCategory');
+Route::get('/edit-category/{id}', 'SalaryController@EditCategory');
+Route::post('/update-category/{id}','SalaryController@UpdateCategory');
+
+//Product Routes are here------------------
+Route::get('/add-product','ProductController@AddProduct')->name('add.product');
+Route::post('/insert-product','ProductController@InsertProduct');
+Route::get('/all-product', 'ProductController@AllProduct')->name('all.product');
+// Route::get('/delete-category/{id}', 'SalaryController@DeleteCategory');
+// Route::get('/edit-category/{id}', 'SalaryController@EditCategory');
+// Route::post('/update-category/{id}','SalaryController@UpdateCategory');

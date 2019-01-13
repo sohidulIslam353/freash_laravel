@@ -58,3 +58,10 @@ Route::get('/delete-product/{id}', 'ProductController@DeleteProduct');
 Route::get('/view-product/{id}', 'ProductController@ViewProduct');
 Route::get('/edit-product/{id}', 'ProductController@EditProduct');
 Route::post('/update-product/{id}','ProductController@UpdateProduct');
+
+//Expense routes are here---------------------
+Route::get('/add-expense','ExpenseController@AddExpense')->name('add.expense');
+Route::post('/insert-expense','ExpenseController@InserExpense');
+Route::get('/today-expense','ExpenseController@TodayExpense')->name('today.expense');
+Route::get('/edit-today-expense/{id}', 'ExpenseController@EditTodayExpense');
+Route::post('/update-expense/{id}','ExpenseController@UpdateExpense');

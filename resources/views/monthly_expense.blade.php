@@ -33,7 +33,7 @@
 	          <div class="col-md-12">
 	              <div class="panel panel-default">
 	                  <div class="panel-heading">
-	                      <h3 class="panel-title text-danger">{{-- {{ date("F") }} --}} Monthly Expense 
+	                      <h3 class="panel-title text-danger"> Monthly Expense
 	                      </h3>
 	                  </div>
 	                  <div class="panel-body">
@@ -43,6 +43,7 @@
 	                                  <thead>
 	                                      <tr>
 	                                          <th>Details</th>
+	                                          <th>Date</th>
 	                                          <th>Amount</th>
 	                                         
 	                                      </tr>
@@ -51,6 +52,7 @@
 	                                  	@foreach($expense as $row)
 	                                      <tr>
 	                                          <td>{{ $row->details }}</td>
+	                                          <td>{{ $row->date }}</td>
 	                                          <td>{{ $row->amount }}</td>
 	                                      </tr>
 	                                    @endforeach

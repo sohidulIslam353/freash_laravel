@@ -16,7 +16,7 @@
 
             <!-- Start Widget -->
             <div class="row">
-	          <div class="col-md-12">
+	          <div class="col-md-8">
 	              <div class="panel panel-default">
 	                  <div class="panel-heading">
 	                      <h3 class="panel-title">All Attendences <a href="{{ route('take.attendence') }}" class="btn btn-sm btn-info pull-right">Take New</a></h3>
@@ -45,8 +45,8 @@
 	                                          <td>{{ $row->edit_date }}</td>
 	                                         <td>
 	                                         	<a href="{{ URL::to('/edit-attendence/'.$row->edit_date) }}" class="btn btn-sm btn-info">Edit</a>
-	                                         	<a href="{{ URL::to('/delete-category/'.$row->edit_date) }}" class="btn btn-sm btn-danger" id="delete">Delete</a>
-	                 	
+	                                         	<a href="{{ URL::to('/delete-attendence/'.$row->edit_date) }}" class="btn btn-sm btn-danger" id="delete">Delete</a>
+	                 							<a href="{{ URL::to('/view-attendence/'.$row->edit_date) }}" class="btn btn-sm btn-success">View</a>
 	                                         </td>
 	                                      </tr>
 

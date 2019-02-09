@@ -86,7 +86,10 @@ Route::get('/take-attendence','AttendenceController@TakeAttendence')->name('take
 Route::post('/insert-attendence','AttendenceController@InsertAttendence');
 Route::get('/all-attendence','AttendenceController@AllAttendence')->name('all.attendence');
 Route::get('/edit-attendence/{edit_date}', 'AttendenceController@EditAttednece');
+Route::post('/update-attendence','AttendenceController@UpdateAttendence');
+Route::get('/view-attendence/{edit_date}', 'AttendenceController@ViewAttednece');
 
 
 //setting routes
 Route::get('/website-setting','AttendenceController@Setting')->name('setting');
+Route::post('/update-website/{id}', 'AttendenceController@UpdateWebsite');

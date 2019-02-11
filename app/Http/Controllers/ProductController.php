@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use App\Exports\ProductsExport;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\productsImport;
 class ProductController extends Controller
 {
        /**
@@ -179,5 +182,33 @@ class ProductController extends Controller
        }
     }
 
+
+
+//products import and export
+    public function ImportProduct()
+    {
+      return view('import_product');
+    }
+
+   public function export() 
+    {
+        return Excel::download(new ProductsExport, 'products.xlsx');
+    }
+
+
+     public function import(Request $request) 
+    {
+        $import=Excel::import(new ProductsImport, $request->file('import_file'));
+         if ($import) {
+                $notification=array(
+                'messege'=>'Product Import Successfully',
+                'alert-type'=>'success'
+                 );
+               return Redirect()->route('all.product')->with($notification);                      
+            }else{
+              return Redirect()->back();
+             } 
+          
+    }
 
 }

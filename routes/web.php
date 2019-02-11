@@ -59,6 +59,11 @@ Route::get('/view-product/{id}', 'ProductController@ViewProduct');
 Route::get('/edit-product/{id}', 'ProductController@EditProduct');
 Route::post('/update-product/{id}','ProductController@UpdateProduct');
 
+//excel import and export
+Route::get('/import-product','ProductController@ImportProduct')->name('import.product');
+Route::get('/export','ProductController@export')->name('export');
+Route::post('/import','ProductController@import')->name('import');
+
 //Expense routes are here---------------------
 Route::get('/add-expense','ExpenseController@AddExpense')->name('add.expense');
 Route::post('/insert-expense','ExpenseController@InserExpense');
@@ -93,3 +98,6 @@ Route::get('/view-attendence/{edit_date}', 'AttendenceController@ViewAttednece')
 //setting routes
 Route::get('/website-setting','AttendenceController@Setting')->name('setting');
 Route::post('/update-website/{id}', 'AttendenceController@UpdateWebsite');
+
+//pos routes are here
+Route::get('/pos','PosController@index')->name('pos');

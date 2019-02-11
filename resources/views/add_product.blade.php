@@ -20,7 +20,8 @@
 	           <div class="col-md-2"></div>
                 <div class="col-md-8 ">
                     <div class="panel panel-default">
-                        <div class="panel-heading"><h3 class="panel-title">Add Product</h3></div>
+                        <div class="panel-heading"><h3 class="panel-title">Add Product
+                            <a href="{{ route('import.product') }}" class="btn btn-sm btn-danger pull-right">Import Product</a></h3></div>
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul>

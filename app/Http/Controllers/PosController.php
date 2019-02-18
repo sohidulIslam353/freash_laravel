@@ -17,8 +17,7 @@ class PosController extends Controller
 		    	->join('categories','products.cat_id','categories.id')
 		    	->select('categories.cat_name','products.*')
 		    	->get();
-    	$customer=DB::table('customers')->get();
     	$categories=DB::table('categories')->get();
-    	return view('pos', compact('product','customer','categories'));
+    	return view('pos', compact('product','categories'));
     }
 }

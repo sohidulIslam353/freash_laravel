@@ -101,3 +101,10 @@ Route::post('/update-website/{id}', 'AttendenceController@UpdateWebsite');
 
 //pos routes are here
 Route::get('/pos','PosController@index')->name('pos');
+
+
+//Cart controller
+Route::post('/add-cart', 'CartController@index');
+Route::post('/cart-update/{rowId}', 'CartController@CartUpdate');
+Route::get('/cart-remove/{rowId}', 'CartController@CartRemove');
+Route::post('/invoice', 'CartController@CreateInvoice');

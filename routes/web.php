@@ -108,3 +108,4 @@ Route::post('/add-cart', 'CartController@index');
 Route::post('/cart-update/{rowId}', 'CartController@CartUpdate');
 Route::get('/cart-remove/{rowId}', 'CartController@CartRemove');
 Route::post('/invoice', 'CartController@CreateInvoice');
+Route::post('/final-invoice', 'CartController@FinalInvoice');
